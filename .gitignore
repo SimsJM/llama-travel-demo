@@ -1,6 +1,7 @@
 # Secrets — never commit these
 .env
 .env.*
+!.env.example
 *.pem
 
 # Dependencies, if a backend is added later
@@ -10,3 +11,7 @@ node_modules/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Server dependencies
+server/node_modules/
+server/.env

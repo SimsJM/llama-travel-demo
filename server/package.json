@@ -1,0 +1,19 @@
+{
+  "name": "llama-checkout-server",
+  "version": "1.0.0",
+  "description": "Checkout Session + webhook backend for the Llama demo site",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "setup": "node setup-catalog.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "stripe": "^22.4.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}
