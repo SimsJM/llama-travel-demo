@@ -1,0 +1,12 @@
+# Secrets — never commit these
+.env
+.env.*
+*.pem
+
+# Dependencies, if a backend is added later
+node_modules/
+
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini

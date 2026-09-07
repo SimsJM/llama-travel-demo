@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pricing — Llama LLC</title>
+<meta name="description" content="Llama is free to try. Premium is $12/month for unlimited trips, live re-planning and offline access.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#129433;</text></svg>">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="mark">🦙</span> Llama</a>
+    <nav class="site">
+      <a href="index.html">Home</a>
+      <a href="pricing.html" aria-current="page">Pricing</a>
+      <a class="btn btn-primary" href="#plans">Start free</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section id="plans">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Pricing</p>
+        <h1>One free plan. One paid one.</h1>
+        <p class="lede">
+          Plan a trip end to end before you pay anything. Premium is for people who
+          travel more than once a year and want the plan to keep up with them.
+        </p>
+      </div>
+
+      <div class="plans">
+        <div class="plan">
+          <h3>Free</h3>
+          <div class="price"><span class="amount">$0</span><span class="per">forever</span></div>
+          <p class="blurb">Enough to plan one proper trip.</p>
+          <ul>
+            <li><span class="tick">✓</span> <span>One active trip at a time</span></li>
+            <li><span class="tick">✓</span> <span>Day-by-day itinerary builder</span></li>
+            <li><span class="tick">✓</span> <span>Opening hours and travel times</span></li>
+            <li><span class="tick">✓</span> <span>Share a read-only link</span></li>
+          </ul>
+          <a class="btn btn-ghost" href="index.html">Start free</a>
+        </div>
+
+        <div class="plan featured">
+          <span class="tag">Most popular</span>
+          <h3>Premium</h3>
+          <div class="price"><span class="amount">$12</span><span class="per">/ month</span></div>
+          <p class="blurb">For people with more than one trip in the calendar.</p>
+          <ul>
+            <li><span class="tick">✓</span> <span>Unlimited trips and travellers</span></li>
+            <li><span class="tick">✓</span> <span>Live re-planning when things change</span></li>
+            <li><span class="tick">✓</span> <span>Offline access to every itinerary</span></li>
+            <li><span class="tick">✓</span> <span>Booking and confirmation storage</span></li>
+            <li><span class="tick">✓</span> <span>Priority support, answered same day</span></li>
+          </ul>
+          <button class="btn btn-primary" id="subscribe" data-plan="premium_monthly">
+            Subscribe to Premium
+          </button>
+        </div>
+      </div>
+
+      <p id="checkout-status" role="status" aria-live="polite"></p>
+
+      <div class="note">
+        <p>
+          <strong>Demo site — test mode.</strong> No real payment is taken. When checkout is
+          wired up, pay with card <code>4242 4242 4242 4242</code>, any future expiry, any CVC,
+          any postcode.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="wrap faq">
+      <div class="section-head">
+        <p class="eyebrow">Questions</p>
+        <h2>Before you subscribe</h2>
+      </div>
+
+      <details open>
+        <summary>Can I cancel whenever I want?</summary>
+        <p>Yes. Cancel from your account page and Premium runs to the end of the period
+           you've already paid for. Nothing is clawed back and nothing auto-renews after that.</p>
+      </details>
+      <details>
+        <summary>What happens to my trips if I downgrade?</summary>
+        <p>They stay. You keep read access to every itinerary you've made — you just go back
+           to editing one active trip at a time.</p>
+      </details>
+      <details>
+        <summary>Which currencies can I pay in?</summary>
+        <p>Llama prices in USD today. Your bank converts at its own rate; the charge on your
+           statement shows as <em>LLAMA LLC</em>.</p>
+      </details>
+      <details>
+        <summary>Do you offer annual billing?</summary>
+        <p>Not yet. It's the request we get most, and it's next on the list.</p>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Llama LLC · Demo site</span>
+    <span><a href="pricing.html">Pricing</a> · <a href="index.html">Home</a></span>
+  </div>
+</footer>
+
+<script src="checkout.js"></script>
+
+</body>
+</html>
