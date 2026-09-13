@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Order confirmation — Llama LLC</title>
+<title>Checkout cancelled — Llama LLC</title>
 <meta name="robots" content="noindex">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#129433;</text></svg>">
 <link rel="stylesheet" href="styles.css">
@@ -23,21 +23,22 @@
 <main>
   <section class="hero">
     <div class="wrap">
-      <p class="eyebrow" id="eyebrow">One moment</p>
-      <h1 id="headline">Confirming your payment…</h1>
-      <p class="lede" id="status">Checking with Stripe.</p>
-
+      <p class="eyebrow">No payment taken</p>
+      <h1>You stopped before paying.</h1>
+      <p class="lede">
+        Nothing was charged and nothing has changed. Your free plan is exactly where
+        you left it, and you can pick up Premium whenever you want.
+      </p>
       <div class="btn-row">
-        <a class="btn btn-primary" href="index.html">Start planning</a>
-        <a class="btn btn-ghost" href="pricing.html">Back to pricing</a>
+        <a class="btn btn-primary" href="pricing.html">Back to pricing</a>
+        <a class="btn btn-ghost" href="index.html">Keep planning for free</a>
       </div>
 
       <div class="note">
         <p>
-          <strong>Demo site — test mode.</strong> No real money moved. This page only
-          <em>reports</em> what happened; access is granted by the
-          <code>checkout.session.completed</code> webhook, because a customer can pay
-          and close the tab before this page ever loads.
+          Changed your mind for a reason we could fix? Tell us at
+          <a href="mailto:hello@llama.example">hello@llama.example</a> — the reasons
+          people stop at this page are the most useful feedback we get.
         </p>
       </div>
     </div>
@@ -50,8 +51,6 @@
     <span><a href="pricing.html">Pricing</a> · <a href="index.html">Home</a></span>
   </div>
 </footer>
-
-<script src="success.js"></script>
 
 </body>
 </html>

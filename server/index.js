@@ -131,8 +131,10 @@ app.post("/api/create-checkout-session", async (request, response) => {
     const session = await stripe.checkout.sessions.create({
       mode: "subscription",
       line_items: [{ price: STRIPE_PRICE_ID, quantity: 1 }],
+      // {CHECKOUT_SESSION_ID} is substituted by Stripe, not by us — the braces are
+      // literal in this string. The success page uses it to look up what happened.
       success_url: `${SITE_URL}/success.html?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${SITE_URL}/pricing.html`,
+      cancel_url: `${SITE_URL}/cancelled.html`,
       // Lets a customer manage the subscription later without you building billing UI.
       billing_address_collection: "auto",
       // Tags sessions in the Dashboard so this flow can be compared against others.
@@ -146,6 +148,33 @@ app.post("/api/create-checkout-session", async (request, response) => {
   } catch (error) {
     console.error("[llama] failed to create Checkout Session:", error.message);
     response.status(500).json({ error: "Could not start checkout" });
+  }
+});
+
+/*
+ * What happened to this session? Used by the success page so it reports the real
+ * outcome instead of assuming the page loading means someone paid.
+ *
+ * Only non-sensitive fields are returned. A session id is a bearer-ish token that
+ * appears in a URL, so this must not become a way to read customer records.
+ */
+app.get("/api/session-status", async (request, response) => {
+  const sessionId = request.query.session_id;
+
+  if (typeof sessionId !== "string" || !sessionId.startsWith("cs_")) {
+    return response.status(400).json({ error: "Invalid session id" });
+  }
+
+  try {
+    const session = await stripe.checkout.sessions.retrieve(sessionId);
+    response.json({
+      status: session.status,               // open | complete | expired
+      paymentStatus: session.payment_status, // paid | unpaid | no_payment_required
+      email: session.customer_details?.email ?? null,
+    });
+  } catch (error) {
+    console.error("[llama] session lookup failed:", error.message);
+    response.status(404).json({ error: "Session not found" });
   }
 });
 
