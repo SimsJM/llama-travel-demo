@@ -43,8 +43,8 @@ const product = await stripe.products.create({
 const price = await stripe.prices.create({
   product: product.id,
   lookup_key: LOOKUP_KEY,
-  unit_amount: 1200, // $12.00 — must match pricing.html
-  currency: "usd",
+  unit_amount: 2000, // £20.00 in pence — must match pricing.html
+  currency: "gbp",
   recurring: { interval: "month" },
 });
 
